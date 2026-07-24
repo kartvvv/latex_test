@@ -1,0 +1,178 @@
+% tables.tex
+\section{表格制作}%
+\label{sec:tables}
+
+在 LaTeX 中，表格是最常用的排版元素之一。以下从简单到复杂逐步展示各种表格的制作方法。
+
+\subsection{基础表格}%
+\label{subsec:basic-table}
+
+最基本的表格使用 \texttt{tabular} 环境创建。参数 \texttt{|c|c|c|} 表示三列居中对齐，并带竖线分隔。
+
+\begin{table}[ht]
+\centering
+\caption{一个简单的表格}%
+\label{tab:simple}
+\begin{tabular}{|c|c|c|}
+\hline
+\textbf{列1} & \textbf{列2} & \textbf{列3} \\
+\hline
+数据A & 数据B & 数据C \\
+数据D & 数据E & 数据F \\
+数据G & 数据H & 数据I \\
+\hline
+\end{tabular}
+\end{table}
+
+表~\ref{tab:simple} 展示了一个基本的 $3\times3$ 表格。
+
+\subsection{不同对齐方式的表格}%
+\label{subsec:alignment}
+
+表格列的对齐方式通过 \texttt{tabular} 环境的参数控制：
+
+\begin{itemize}
+    \item \texttt{l}:左对齐(left)
+    \item \texttt{c}：居中（center）
+    \item \texttt{r}：右对齐（right）
+    \item \texttt{p\{宽度\}}：固定宽度自动换行（paragraph）
+\end{itemize}
+
+\begin{table}[ht]
+\centering
+\caption{不同对齐方式的对比}%
+\label{tab:alignment}
+\begin{tabular}{|l|c|r|}
+\hline
+\textbf{左对齐} & \textbf{居中} & \textbf{右对齐} \\
+\hline
+文本内容示例 & 文本内容示例 & 文本内容示例 \\
+左对齐文字 & 居中对齐文字 & 右对齐文字 \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{合并行与列}%
+\label{subsec:merge}
+
+使用 \texttt{\textbackslash multicolumn} 和 \texttt{\textbackslash multirow} 命令可以合并单元格。
+
+\begin{table}[ht]
+\centering
+\caption{合并单元格示例}%
+\label{tab:merge}
+\begin{tabular}{|c|c|c|}
+\hline
+\multicolumn{2}{|c|}{\textbf{合并两列}} & \textbf{单独列} \\
+\hline
+行1列1 & 行1列2 & 行1列3 \\
+\hline
+\multirow{2}{*}{合并两行} & 行2列2 & 行2列3 \\
+\cline{2-3}
+ & 行3列2 & 行3列3 \\
+\hline
+\end{tabular}
+\end{table}
+
+表~\ref{tab:merge} 使用了 \texttt{\textbackslash multicolumn} 和 \texttt{\textbackslash multirow} 命令来实现单元格合并。
+
+\subsection{带数值的表格}%
+\label{subsec:data-table}
+
+学术论文中常见的数据表格，通常包含数值数据和对齐的小数点。
+
+\begin{table}[ht]
+\centering
+\caption{实验数据对比}%
+\label{tab:data}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\textbf{方法} & \textbf{精确率} & \textbf{召回率} & \textbf{F1分数} \\
+\hline
+方法A & 0.893 & 0.876 & 0.884 \\
+方法B & 0.912 & 0.905 & 0.908 \\
+方法C & 0.945 & 0.938 & 0.941 \\
+方法D（本文） & \textbf{0.967} & \textbf{0.959} & \textbf{0.963} \\
+\hline
+\end{tabular}
+\end{table}
+
+表~\ref{tab:data} 展示了四种方法的性能对比，其中本文方法的各项指标均取得了最佳结果。
+
+\subsection{使用 booktabs 美化表格}%
+\label{subsec:booktabs}
+
+\texttt{booktabs} 宏包可以生成更专业、美观的表格，它提供 \texttt{\textbackslash toprule}、\texttt{\textbackslash midrule} 和 \texttt{\textbackslash bottomrule} 命令替代普通的 \texttt{\textbackslash hline}。相比传统表格，\texttt{booktabs} 更简洁优雅。
+
+\begin{table}[ht]
+\centering
+\caption{使用 booktabs 的美化表格}%
+\label{tab:booktabs}
+\begin{tabular}{lccc}
+\toprule
+\textbf{模型} & \textbf{参数量} & \textbf{训练时间} & \textbf{准确率} \\
+\midrule
+LeNet-5     & 60K    & 2小时   & 98.3\% \\
+AlexNet     & 60M    & 6天    & 99.1\% \\
+VGG-16      & 138M   & 14天   & 99.3\% \\
+ResNet-50   & 25M    & 10天   & \textbf{99.5\%} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+表~\ref{tab:booktabs} 使用了 \texttt{booktabs} 宏包，去除了竖线和多余的横线，显得更加专业整洁。
+
+\subsection{长表格}%
+\label{subsec:longtable}
+
+当表格内容超过一页时，可以使用 \texttt{longtable} 环境来自动分页，并自动在每页重复表头。
+
+\begin{center}
+\begin{longtable}{|c|l|p{7cm}|}
+\caption{长表示例：研究工作总结} \\
+\label{tab:longtable} \\
+\toprule
+\textbf{编号} & \textbf{研究方向} & \textbf{主要贡献} \\
+\midrule
+\endfirsthead
+
+\multicolumn{3}{c}{\tablename\ \thetable\ —— 续表} \\
+\toprule
+\textbf{编号} & \textbf{研究方向} & \textbf{主要贡献} \\
+\midrule
+\endhead
+
+\midrule
+\multicolumn{3}{r}{\textit{续表下一页}} \\
+\endfoot
+
+\bottomrule
+\endlastfoot
+
+1 & 机器学习 & 提出了一种新的分类算法 \\
+2 & 深度学习 & 改进了卷积网络结构 \\
+3 & 自然语言处理 & 提出了注意力机制改进 \\
+4 & 计算机视觉 & 实现了目标检测新方法 \\
+5 & 强化学习 & 优化了策略梯度算法 \\
+6 & 数据挖掘 & 发现了大规模数据中的新模式 \\
+7 & 图神经网络 & 提出了异构图表征学习 \\
+8 & 迁移学习 & 设计了领域自适应框架 \\
+\hline
+\end{longtable}
+\end{center}
+
+\subsection{表格排版要点}%
+\label{subsec:table-tips}
+
+在制作表格时，应注意以下几点：
+
+\begin{itemize}
+    \item \textbf{简洁原则}：避免过多竖线，推荐使用 \texttt{booktabs} 宏包
+    \item \textbf{浮动位置}：使用 \texttt{[htbp]} 参数控制表格位置
+    \item \textbf{宽度控制}：使用 \texttt{p\{宽度\}} 或 \texttt{tabularx} 控制列宽
+    \item \textbf{跨页表格}：内容较多时使用 \texttt{longtable} 环境
+    \item \textbf{标签引用}：每个表格都应添加 \texttt{\textbackslash label} 便于引用
+    \item \textbf{表注说明}：必要时在表格下方添加注释说明
+\end{itemize}
+
+
