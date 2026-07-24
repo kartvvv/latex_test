@@ -1,0 +1,39 @@
+% math.tex
+\section{数学公式}
+\label{sec:math}
+
+LaTeX 最强大的功能之一是数学公式排版。以下是一些示例：
+
+\subsection{行内公式}
+爱因斯坦的质能方程：$E = mc^2$。勾股定理：$a^2 + b^2 = c^2$。
+
+\subsection{独立公式}
+二次方程求根公式：
+\[
+x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
+\]
+
+\subsection{多行公式}
+\begin{align}
+f(x) &= \int_{-\infty}^{\infty} \hat{f}(\xi) e^{2 \pi i \xi x} d\xi \\
+\hat{f}(\xi) &= \int_{-\infty}^{\infty} f(x) e^{-2 \pi i \xi x} dx
+\end{align}
+
+\subsection{矩阵和行列式}
+矩阵表示：
+\[
+A = \begin{bmatrix}
+a_{11} & a_{12} & \cdots & a_{1n} \\
+a_{21} & a_{22} & \cdots & a_{2n} \\
+\vdots & \vdots & \ddots & \vdots \\
+a_{m1} & a_{m2} & \cdots & a_{mn}
+\end{bmatrix}
+\]
+
+行列式：
+\[
+\det(A) = \begin{vmatrix}
+a & b \\
+c & d
+\end{vmatrix} = ad - bc
+\]

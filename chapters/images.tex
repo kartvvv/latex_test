@@ -1,0 +1,40 @@
+% images.tex
+\section{图片插入}
+\label{sec:images}
+
+在 LaTeX 中插入图片需要使用 \texttt{graphicx} 包和 \texttt{figure} 环境。
+
+\begin{figure}[ht]
+\centering
+% 请将 example-image.png 替换为实际图片文件
+\includegraphics[width=0.5\textwidth]{images/example-image.png}
+\caption{示例图片}
+\label{fig:example}
+\end{figure}
+
+图 \ref{fig:example} 展示了一个图片插入的示例。图片的位置可以通过可选参数控制：
+
+\begin{itemize}
+    \item \texttt{h}：当前位置（here）
+    \item \texttt{t}：页面顶部（top）
+    \item \texttt{b}：页面底部（bottom）
+    \item \texttt{p}：单独一页（page）
+\end{itemize}
+
+\subsection{图片格式建议}
+为了获得最佳效果，建议使用以下图片格式：
+
+\begin{table}[ht]
+\centering
+\caption{支持的图片格式}
+\label{tab:image-formats}
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{格式} & \textbf{优点} & \textbf{缺点} \\
+\hline
+PDF & 矢量图，缩放无损 & 不适合照片 \\
+PNG & 无损压缩，适合图表 & 文件较大 \\
+JPG & 有损压缩，适合照片 & 质量损失 \\
+\hline
+\end{tabular}
+\end{table}

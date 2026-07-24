@@ -1,0 +1,44 @@
+\documentclass[12pt,a4paper,UTF8]{ctexart} % ctexart提供中文支持，显式指定UTF8避免报错
+
+% 预加载包和配置
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage{xcolor}
+
+% 文档信息
+\title{我的第一个 LaTeX 文档}
+\author{你的名字}
+\date{\today}
+
+\begin{document}
+
+% 标题页
+\maketitle
+
+% 摘要
+\begin{abstract}
+这是一篇使用 VS Code 和 LaTeX Workshop 编写的示例文档。本文演示了 LaTeX 的基本功能，包括章节、数学公式、图片和参考文献。
+\end{abstract}
+
+\tableofcontents
+\newpage
+
+% 正文开始
+\input{chapters/introduction}
+\input{chapters/math}
+\input{chapters/images}
+\input{chapters/conclusion}
+
+% 参考文献
+\clearpage                  % 确保在新页面开始参考文献
+\sloppy                     % 放松排版规则，减少Underfull警告
+\bibliographystyle{plain}
+\bibliography{references}
+\vspace{1em}                % 添加一点垂直间距
+\fussy                      % 恢复严格排版（可选）
+
+\end{document}
