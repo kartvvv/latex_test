@@ -1,0 +1,21 @@
+# 编译生成的文件
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+*.bbl
+*.blg
+*.brf
+
+# 如果你只传源码，不想传编译好的PDF，就把下面这行也加上（加了的话，PDF就不会被上传）
+# *.pdf
+
+# Windows系统垃圾文件
+Thumbs.db
+*.tmp
+
+# VS Code 编辑器配置（保护个人设置）
+.vscode/
